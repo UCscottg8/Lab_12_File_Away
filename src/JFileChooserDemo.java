@@ -7,9 +7,6 @@ import javax.swing.JFileChooser;
 
 public class JFileChooserDemo
 {
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args)
     {
         JFileChooser chooser = new JFileChooser();
