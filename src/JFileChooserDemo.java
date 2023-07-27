@@ -1,4 +1,3 @@
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -8,7 +7,6 @@ import javax.swing.JFileChooser;
 
 public class JFileChooserDemo
 {
-
     /**
      * @param args the command line arguments
      */
@@ -17,6 +15,9 @@ public class JFileChooserDemo
         JFileChooser chooser = new JFileChooser();
         Scanner inFile;
         String line;
+        int lineCount = 0;
+        int wordCount = 0;
+        int charCount = 0;
         Path target = new File(System.getProperty("user.dir")).toPath();
         target = target.resolve("src");
         // set the chooser to the project src directory
@@ -24,18 +25,25 @@ public class JFileChooserDemo
 
         try  // Code that might trigger the exception goes here
         {
-
             if(chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION)
             {
                 target = chooser.getSelectedFile().toPath();  // this is a File object not a String filename
+
+                System.out.println("Processing file: " + target);
 
                 inFile = new Scanner(target);
 
                 while(inFile.hasNextLine())
                 {
                     line = inFile.nextLine();
-                    System.out.println(line);
+                    lineCount++;
+                    wordCount += line.split("\\s+").length;
+                    charCount += line.length();
                 }
+
+                System.out.println("Number of lines: " + lineCount);
+                System.out.println("Number of words: " + wordCount);
+                System.out.println("Number of characters: " + charCount);
 
                 inFile.close();
             }
@@ -56,6 +64,5 @@ public class JFileChooserDemo
             e.printStackTrace();
         }
     }
-
 }
 
