@@ -27,7 +27,7 @@ public class JFileChooserDemo
         {
             if(chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION)
             {
-                target = chooser.getSelectedFile().toPath();  // this is a File object not a String filename
+                target = chooser.getSelectedFile().toPath();  // This is a File object not a String filename
 
                 System.out.println("Processing file: " + target);
 
