@@ -58,7 +58,7 @@ public class JFileChooserDemo
             System.out.println("File Not Found Error");
             e.printStackTrace();
         }
-        catch (IOException e) // code to handle this exception
+        catch (IOException e) // Code to handle this exception
         {
             System.out.println("IOException Error");
             e.printStackTrace();
